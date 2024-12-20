@@ -33,6 +33,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         filepacker.h filepacker.cpp
         state.h
         inoderecorder.h inoderecorder.cpp
+        filecompressor.h filecompressor.cpp
+        up_down.h up_down.cpp
 
     )
 # Define target properties for Android with Qt 6 as:

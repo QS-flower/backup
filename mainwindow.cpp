@@ -2,7 +2,10 @@
 #include "ui_mainwindow.h"
 
 #include <QGraphicsDropShadowEffect>
-#include "filepacker.h" //待添加
+#include "filepacker.h"
+#include "filecompressor.h"
+#include "filereader.h"
+#include "up_down.h"
 
 #include <QGraphicsDropShadowEffect>
 
@@ -84,19 +87,20 @@ void MainWindow::on_backup_btn_clicked()//备份
     QMessageBox::information(NULL, "", "File compacts over!");
 
     //文件压缩
-    QMessageBox::information(NULL, "", "正在压缩中...");
-    // FileCompressor *fileCompressor = new FileCompressor(tempDirectory.toStdString(),Packer.BackupFile);
-    // if(fileCompressor->Compress() != NO_ERROR)
-    // {
-    //     delete fileCompressor;
-    //     printf("压缩失败！\n");
-    //     return;
-    // }
-    QMessageBox::information(NULL, "", "文件压缩完成");
+    QMessageBox::information(NULL, "", "Compressing...");
+    FileCompressor *fileCompressor = new FileCompressor(tempDirectory.toStdString(),Packer.BackupFile);
+    if(fileCompressor->Compress() != NO_ERROR)
+    {
+        delete fileCompressor;
+        printf("Compress fail！\n");
+        return;
+    }
+    QMessageBox::information(NULL, "", "Compress finish!");
 
-    //文件上传
-    /*QMessageBox::information(NULL, "", "文件上传中...");
-    if(upload((tempDirectory + COMPRESSOR_FILE_NAME).toStdString().c_str(),name.toStdString().c_str()) == 1)
+    //文件上传（为了测试，我们将name替换成具体的字符，实际上，name应该是从数据库中导出的，修改第103行name参数）
+    std::string name = "Lz_test"; // 测试
+    QMessageBox::information(NULL, "", "File Uploading...");
+    if(upload((tempDirectory + COMPRESSOR_FILE_NAME).toStdString().c_str(),name.c_str()) == 1)
     {
         fileCompressor->DeleteFile();
         delete fileCompressor;
@@ -109,45 +113,51 @@ void MainWindow::on_backup_btn_clicked()//备份
         delete fileCompressor;
         printf("Backup failed! Because unknown error occurred on uploading.\n");
         printf("Backup File store in %s",tempDirectory);
-    }*/
+    }
 }
+
+
 void MainWindow::on_restore_btn_clicked()
 {
 
-//         char tr[] = "/tmp/BackupToolTmpFile.XXXXXX";
-//         QString tempDirectory = mkdtemp(tr);
-//         tempDirectory += "/";
-//         qDebug() << "tempDirectory: " << tempDirectory;
-//         //选择目录界面，并将所得目录传递给变量rootDirectory
-//         QString rootDirectory = QFileDialog::getExistingDirectory(this,"请选择目标文件夹","/home/czy");
-//         if (!rootDirectory.isEmpty()) {
-//             qDebug() << "rootDircetory: " << rootDirectory;
-//         }
-//         if (rootDirectory.back() != '/')
-//             rootDirectory += '/';
+    char tr[] = "/tmp/BackupToolTmpFile.XXXXXX";
+    QString tempDirectory = mkdtemp(tr);
+    tempDirectory += "/";
+    qDebug() << "tempDirectory: " << tempDirectory;
+    //选择目录界面，并将所得目录传递给变量rootDirectory
+    QString rootDirectory = QFileDialog::getExistingDirectory(this,"请选择目标文件夹","/home/qs");
+    if (!rootDirectory.isEmpty()) {
+        qDebug() << "rootDircetory: " << rootDirectory;
+    }
+    if (rootDirectory.back() != '/')
+        rootDirectory += '/';
 
-//         QString packDirecroty_user = "/home/czy/packup/" + name;
-//         QString packDirectory = QFileDialog::getOpenFileName(this,"请选择文件",packDirecroty_user);
-//         if (!packDirectory.isEmpty()) {
-//             qDebug() << "packDirectory: " << packDirectory;
-//         }
+    //文件下载（为了测试，我们将name替换成具体的字符，实际上，name应该是从数据库中导出的，修改第139行name参数）
+    QString name_test = "Lz_test"; // 测试
+
+
+    QString packDirecroty_user = "/home/qs/our_packup/" + name_test;
+    QString packDirectory = QFileDialog::getOpenFileName(this,"请选择文件",packDirecroty_user);
+    if (!packDirectory.isEmpty()) {
+        qDebug() << "packDirectory: " << packDirectory;
+    }
 
     QMessageBox::information(NULL, "", "正在下载中...");
-//         if(download(packDirectory.toStdString().c_str(),tempDirectory.toStdString().c_str())==1){ //下载备份的文件
-//             QMessageBox::information(NULL, "", "文件下载成功！");
-//             //解压缩
-//             QMessageBox::information(NULL, "", "正在解压中...");
-//             FileCompressor *fileCompressor = new FileCompressor(tempDirectory.toStdString());
-//             if(fileCompressor->Decompress() != NO_ERROR)
-//             {
-//                 delete fileCompressor;
-//                 printf("解压失败！\n");
-//                 return;
-//                 //error
-//             }
-//             fileCompressor->DeleteFile();
-//             delete fileCompressor;
-//             QMessageBox::information(NULL, "", "文件解压成功！");
+    if(download(packDirectory.toStdString().c_str(),tempDirectory.toStdString().c_str())==1){ //下载备份的文件
+        QMessageBox::information(NULL, "", "文件下载成功！");
+        //解压缩
+        QMessageBox::information(NULL, "", "正在解压中...");
+        FileCompressor *fileCompressor = new FileCompressor(tempDirectory.toStdString());
+        if(fileCompressor->Decompress() != NO_ERROR)
+        {
+            delete fileCompressor;
+            printf("解压失败！\n");
+            return;
+            //error
+        }
+        fileCompressor->DeleteFile();
+        delete fileCompressor;
+        QMessageBox::information(NULL, "", "文件解压成功！");
 //             //解包
 //             QMessageBox::information(NULL, "", "正在解包中...");
 //             FilePacker Packer = FilePacker(tempDirectory.toStdString(),false);
@@ -189,7 +199,7 @@ void MainWindow::on_restore_btn_clicked()
 //             system((string("rm -R ") + tempDirectory.toStdString()).c_str());
 //         }
 
-//     }
+    }
 
 //     void choose::getData(QString str1)
 //     {
