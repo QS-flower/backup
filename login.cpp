@@ -38,7 +38,7 @@ void login::on_login_btn_clicked()
         QMessageBox::information(this, "Login", "Login successful");
         // 这里可以进一步进入应用程序的主界面
         // 创建主窗口并显示
-        MainWindow *mainWindow = new MainWindow();
+        MainWindow *mainWindow = new MainWindow(username);
         mainWindow->show();
 
         // 关闭登录窗口

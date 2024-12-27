@@ -331,6 +331,36 @@
 			"EWIEGA46WW/moc_databasemanager.cpp",
 			null
 		],
+		[
+			"/home/qs/backup_v1/filecompressor.h",
+			"MU",
+			"EWIEGA46WW/moc_filecompressor.cpp",
+			null
+		],
+		[
+			"/home/qs/backup_v1/fileinformation.h",
+			"MU",
+			"EWIEGA46WW/moc_fileinformation.cpp",
+			null
+		],
+		[
+			"/home/qs/backup_v1/filepacker.h",
+			"MU",
+			"EWIEGA46WW/moc_filepacker.cpp",
+			null
+		],
+		[
+			"/home/qs/backup_v1/filereader.h",
+			"MU",
+			"EWIEGA46WW/moc_filereader.cpp",
+			null
+		],
+		[
+			"/home/qs/backup_v1/inoderecorder.h",
+			"MU",
+			"EWIEGA46WW/moc_inoderecorder.cpp",
+			null
+		],
 		[ "/home/qs/backup_v1/login.h", "MU", "EWIEGA46WW/moc_login.cpp", null ],
 		[
 			"/home/qs/backup_v1/mainwindow.h",
@@ -342,6 +372,13 @@
 			"/home/qs/backup_v1/register1.h",
 			"MU",
 			"EWIEGA46WW/moc_register1.cpp",
+			null
+		],
+		[ "/home/qs/backup_v1/state.h", "MU", "EWIEGA46WW/moc_state.cpp", null ],
+		[
+			"/home/qs/backup_v1/up_down.h",
+			"MU",
+			"EWIEGA46WW/moc_up_down.cpp",
 			null
 		]
 	],
@@ -398,10 +435,16 @@
 	"SOURCES" : 
 	[
 		[ "/home/qs/backup_v1/databasemanager.cpp", "MU", null ],
+		[ "/home/qs/backup_v1/filecompressor.cpp", "MU", null ],
+		[ "/home/qs/backup_v1/fileinformation.cpp", "MU", null ],
+		[ "/home/qs/backup_v1/filepacker.cpp", "MU", null ],
+		[ "/home/qs/backup_v1/filereader.cpp", "MU", null ],
+		[ "/home/qs/backup_v1/inoderecorder.cpp", "MU", null ],
 		[ "/home/qs/backup_v1/login.cpp", "MU", null ],
 		[ "/home/qs/backup_v1/main.cpp", "MU", null ],
 		[ "/home/qs/backup_v1/mainwindow.cpp", "MU", null ],
-		[ "/home/qs/backup_v1/register1.cpp", "MU", null ]
+		[ "/home/qs/backup_v1/register1.cpp", "MU", null ],
+		[ "/home/qs/backup_v1/up_down.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

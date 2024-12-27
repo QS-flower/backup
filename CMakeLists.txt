@@ -28,6 +28,13 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         register1.h register1.cpp register1.ui
         databasemanager.h databasemanager.cpp
         mainwindow.h mainwindow.cpp mainwindow.ui
+        fileinformation.h fileinformation.cpp
+        filereader.h filereader.cpp
+        filepacker.h filepacker.cpp
+        state.h
+        inoderecorder.h inoderecorder.cpp
+        filecompressor.h filecompressor.cpp
+        up_down.h up_down.cpp
 
     )
 # Define target properties for Android with Qt 6 as:

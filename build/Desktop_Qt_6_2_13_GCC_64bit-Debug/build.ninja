@@ -97,6 +97,54 @@ build CMakeFiles/backup_v1.dir/mainwindow.cpp.o: CXX_COMPILER__backup_v1_unscann
   OBJECT_DIR = CMakeFiles/backup_v1.dir
   OBJECT_FILE_DIR = CMakeFiles/backup_v1.dir
 
+build CMakeFiles/backup_v1.dir/fileinformation.cpp.o: CXX_COMPILER__backup_v1_unscanned_Debug /home/qs/backup_v1/fileinformation.cpp || cmake_object_order_depends_target_backup_v1
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/backup_v1.dir/fileinformation.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always -fPIC
+  INCLUDES = -I/home/qs/backup_v1/build/Desktop_Qt_6_2_13_GCC_64bit-Debug/backup_v1_autogen/include -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtCore -isystem /home/qs/Qt/6.2.13/gcc_64/include -isystem /home/qs/Qt/6.2.13/gcc_64/mkspecs/linux-g++ -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtWidgets -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtGui -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtSql
+  OBJECT_DIR = CMakeFiles/backup_v1.dir
+  OBJECT_FILE_DIR = CMakeFiles/backup_v1.dir
+
+build CMakeFiles/backup_v1.dir/filereader.cpp.o: CXX_COMPILER__backup_v1_unscanned_Debug /home/qs/backup_v1/filereader.cpp || cmake_object_order_depends_target_backup_v1
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/backup_v1.dir/filereader.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always -fPIC
+  INCLUDES = -I/home/qs/backup_v1/build/Desktop_Qt_6_2_13_GCC_64bit-Debug/backup_v1_autogen/include -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtCore -isystem /home/qs/Qt/6.2.13/gcc_64/include -isystem /home/qs/Qt/6.2.13/gcc_64/mkspecs/linux-g++ -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtWidgets -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtGui -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtSql
+  OBJECT_DIR = CMakeFiles/backup_v1.dir
+  OBJECT_FILE_DIR = CMakeFiles/backup_v1.dir
+
+build CMakeFiles/backup_v1.dir/filepacker.cpp.o: CXX_COMPILER__backup_v1_unscanned_Debug /home/qs/backup_v1/filepacker.cpp || cmake_object_order_depends_target_backup_v1
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/backup_v1.dir/filepacker.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always -fPIC
+  INCLUDES = -I/home/qs/backup_v1/build/Desktop_Qt_6_2_13_GCC_64bit-Debug/backup_v1_autogen/include -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtCore -isystem /home/qs/Qt/6.2.13/gcc_64/include -isystem /home/qs/Qt/6.2.13/gcc_64/mkspecs/linux-g++ -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtWidgets -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtGui -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtSql
+  OBJECT_DIR = CMakeFiles/backup_v1.dir
+  OBJECT_FILE_DIR = CMakeFiles/backup_v1.dir
+
+build CMakeFiles/backup_v1.dir/inoderecorder.cpp.o: CXX_COMPILER__backup_v1_unscanned_Debug /home/qs/backup_v1/inoderecorder.cpp || cmake_object_order_depends_target_backup_v1
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/backup_v1.dir/inoderecorder.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always -fPIC
+  INCLUDES = -I/home/qs/backup_v1/build/Desktop_Qt_6_2_13_GCC_64bit-Debug/backup_v1_autogen/include -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtCore -isystem /home/qs/Qt/6.2.13/gcc_64/include -isystem /home/qs/Qt/6.2.13/gcc_64/mkspecs/linux-g++ -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtWidgets -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtGui -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtSql
+  OBJECT_DIR = CMakeFiles/backup_v1.dir
+  OBJECT_FILE_DIR = CMakeFiles/backup_v1.dir
+
+build CMakeFiles/backup_v1.dir/filecompressor.cpp.o: CXX_COMPILER__backup_v1_unscanned_Debug /home/qs/backup_v1/filecompressor.cpp || cmake_object_order_depends_target_backup_v1
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/backup_v1.dir/filecompressor.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always -fPIC
+  INCLUDES = -I/home/qs/backup_v1/build/Desktop_Qt_6_2_13_GCC_64bit-Debug/backup_v1_autogen/include -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtCore -isystem /home/qs/Qt/6.2.13/gcc_64/include -isystem /home/qs/Qt/6.2.13/gcc_64/mkspecs/linux-g++ -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtWidgets -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtGui -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtSql
+  OBJECT_DIR = CMakeFiles/backup_v1.dir
+  OBJECT_FILE_DIR = CMakeFiles/backup_v1.dir
+
+build CMakeFiles/backup_v1.dir/up_down.cpp.o: CXX_COMPILER__backup_v1_unscanned_Debug /home/qs/backup_v1/up_down.cpp || cmake_object_order_depends_target_backup_v1
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/backup_v1.dir/up_down.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always -fPIC
+  INCLUDES = -I/home/qs/backup_v1/build/Desktop_Qt_6_2_13_GCC_64bit-Debug/backup_v1_autogen/include -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtCore -isystem /home/qs/Qt/6.2.13/gcc_64/include -isystem /home/qs/Qt/6.2.13/gcc_64/mkspecs/linux-g++ -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtWidgets -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtGui -isystem /home/qs/Qt/6.2.13/gcc_64/include/QtSql
+  OBJECT_DIR = CMakeFiles/backup_v1.dir
+  OBJECT_FILE_DIR = CMakeFiles/backup_v1.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target backup_v1
@@ -105,7 +153,7 @@ build CMakeFiles/backup_v1.dir/mainwindow.cpp.o: CXX_COMPILER__backup_v1_unscann
 #############################################
 # Link the executable backup_v1
 
-build backup_v1: CXX_EXECUTABLE_LINKER__backup_v1_Debug CMakeFiles/backup_v1.dir/backup_v1_autogen/mocs_compilation.cpp.o CMakeFiles/backup_v1.dir/main.cpp.o CMakeFiles/backup_v1.dir/login.cpp.o CMakeFiles/backup_v1.dir/register1.cpp.o CMakeFiles/backup_v1.dir/databasemanager.cpp.o CMakeFiles/backup_v1.dir/mainwindow.cpp.o | /home/qs/Qt/6.2.13/gcc_64/lib/libQt6Widgets.so.6.2.13 /home/qs/Qt/6.2.13/gcc_64/lib/libQt6Sql.so.6.2.13 /home/qs/Qt/6.2.13/gcc_64/lib/libQt6Gui.so.6.2.13 /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so /home/qs/Qt/6.2.13/gcc_64/lib/libQt6Core.so.6.2.13 || backup_v1_autogen backup_v1_autogen_timestamp_deps
+build backup_v1: CXX_EXECUTABLE_LINKER__backup_v1_Debug CMakeFiles/backup_v1.dir/backup_v1_autogen/mocs_compilation.cpp.o CMakeFiles/backup_v1.dir/main.cpp.o CMakeFiles/backup_v1.dir/login.cpp.o CMakeFiles/backup_v1.dir/register1.cpp.o CMakeFiles/backup_v1.dir/databasemanager.cpp.o CMakeFiles/backup_v1.dir/mainwindow.cpp.o CMakeFiles/backup_v1.dir/fileinformation.cpp.o CMakeFiles/backup_v1.dir/filereader.cpp.o CMakeFiles/backup_v1.dir/filepacker.cpp.o CMakeFiles/backup_v1.dir/inoderecorder.cpp.o CMakeFiles/backup_v1.dir/filecompressor.cpp.o CMakeFiles/backup_v1.dir/up_down.cpp.o | /home/qs/Qt/6.2.13/gcc_64/lib/libQt6Widgets.so.6.2.13 /home/qs/Qt/6.2.13/gcc_64/lib/libQt6Sql.so.6.2.13 /home/qs/Qt/6.2.13/gcc_64/lib/libQt6Gui.so.6.2.13 /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so /home/qs/Qt/6.2.13/gcc_64/lib/libQt6Core.so.6.2.13 || backup_v1_autogen backup_v1_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_LIBRARIES = -Wl,-rpath,/home/qs/Qt/6.2.13/gcc_64/lib:  /home/qs/Qt/6.2.13/gcc_64/lib/libQt6Widgets.so.6.2.13  /home/qs/Qt/6.2.13/gcc_64/lib/libQt6Sql.so.6.2.13  /home/qs/Qt/6.2.13/gcc_64/lib/libQt6Gui.so.6.2.13  /usr/lib/x86_64-linux-gnu/libGLX.so  /usr/lib/x86_64-linux-gnu/libOpenGL.so  /home/qs/Qt/6.2.13/gcc_64/lib/libQt6Core.so.6.2.13
   OBJECT_DIR = CMakeFiles/backup_v1.dir

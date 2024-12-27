@@ -106,3 +106,45 @@ bool DatabaseManager::registerUser(const QString &username, const QString &passw
         return false;
     }
 }
+//上传备份记录
+bool DatabaseManager::insertUploadRecord(const QString &filepath, long filesize, const QString &oldpath, const QString &username, const QString &time_s, QString &errorMessage)
+{
+    QSqlQuery query(db);
+
+    // 创建 SQL 插入语句
+    query.prepare("INSERT INTO history (time, path, size, oldpath, user) "
+                  "VALUES (:time, :path, :size, :oldpath, :user)");
+    query.bindValue(":time", time_s);
+    query.bindValue(":path", filepath);
+    query.bindValue(":size", QVariant::fromValue(filesize));
+    query.bindValue(":oldpath", oldpath);
+    query.bindValue(":user", username);
+
+    // 执行插入查询
+    if (query.exec()) {
+        return true;
+    } else {
+        errorMessage = "Failed to insert record into database: " + query.lastError().text();
+        return false;
+    }
+}
+QPair<QString, int> DatabaseManager::queryHistory(const std::string &path_user)
+{
+    QPair<QString, int> result;  // 用来存储查询结果（文件名和文件大小）
+
+    QString queryStr = QString("SELECT * FROM history WHERE path = '%1'").arg(QString::fromStdString(path_user));
+    QSqlQuery query(db);
+
+    if (!query.exec(queryStr)) {
+        qDebug() << "Query execution failed:" << query.lastError().text();
+        return result;  // 返回默认构造的 QPair
+    }
+
+    if (query.next()) {
+        // 获取查询结果，假设文件名存储在第5列（索引4），文件大小存储在第4列（索引3）
+        result.first = query.value(4).toString();  // 文件名
+        result.second = query.value(3).toInt();    // 文件大小
+    }
+    qDebug() << result;
+    return result;
+}
