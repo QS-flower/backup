@@ -184,7 +184,7 @@ void MainWindow::on_restore_btn_clicked()
         QMessageBox::information(NULL, "", "正在解包中...");
         FilePacker Packer = FilePacker(tempDirectory.toStdString(), false);
         //我也不知道这个是干嘛的
-        //Packer.Disassemble();
+        Packer.Disassemble();
         delete InodeRecorder::inodeRecorderRestore;
         InodeRecorder::inodeRecorderRestore = new InodeRecorderRestore();
         off_t ProcessBarTotal = Packer.UnitFile->Length();

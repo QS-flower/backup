@@ -19,16 +19,16 @@ FilePacker::FilePacker(const std::string &directoryPath, bool ForBackup)
         DataFile->write((char *)&tmp0, sizeof(off_t));
         UnitFile->write((char *)&tmp0, sizeof(off_t));
     }
-    // else
-    // {
-    //     // 还原时，数据先位于一个文件，需要拆成两个存放不同内容的文件，故状态设置为ALL_IN_ONE_OPENED
-    //     Status = ALL_IN_ONE_OPENED;
-    //     DataFile = nullptr;
-    //     UnitFile = nullptr;
-    //     BackupFile = new FileReader(directoryPath + PACKED_FILE_NAME, false);
-    //     if (!BackupFile->is_open())
-    //         Status = ERROR;
-    // }
+    else
+    {
+        // 还原时，数据先位于一个文件，需要拆成两个存放不同内容的文件，故状态设置为ALL_IN_ONE_OPENED
+        Status = ALL_IN_ONE_OPENED;
+        DataFile = nullptr;
+        UnitFile = nullptr;
+        BackupFile = new FileReader(directoryPath + PACKED_FILE_NAME, false);
+        if (!BackupFile->is_open())
+            Status = ERROR;
+    }
 }
 
 FilePacker::~FilePacker()
@@ -106,75 +106,75 @@ StatusCode FilePacker::CompactFile()//整合元数据文件与数据文件
 }
 
 /*以下为解包*/
-// StatusCode FilePacker::Disassemble()
-// {
-//     if (Status != ALL_IN_ONE_OPENED)
-//         return ERROR_UNKNOW;
+StatusCode FilePacker::Disassemble()
+{
+    if (Status != ALL_IN_ONE_OPENED)
+        return ERROR_UNKNOW;
 
-//     // 文件读取缓冲区
-//     char *buffer = new char[BUFF_LENGTH];
-//     // 实际读取长度
-//     size_t readLength{};
-//     // UnitFile在整合的文件中的偏移量
-//     off_t unitOffset{};
+    // 文件读取缓冲区
+    char *buffer = new char[BUFF_LENGTH];
+    // 实际读取长度
+    size_t readLength{};
+    // UnitFile在整合的文件中的偏移量
+    off_t unitOffset{};
 
-//     // 通过文件头部的文件长度信息获取DataFile的长度，其后就是UnitFile了
-//     BackupFile->seekg(0);
-//     BackupFile->read((char *)&unitOffset, sizeof(unitOffset));
-//     if (!BackupFile->good() || BackupFile->gcount() != sizeof(unitOffset))
-//     {
-//         delete[] buffer;
-//         return ERROR_FILE_CANT_READ;
-//     }
+    // 通过文件头部的文件长度信息获取DataFile的长度，其后就是UnitFile了
+    BackupFile->seekg(0);
+    BackupFile->read((char *)&unitOffset, sizeof(unitOffset));
+    if (!BackupFile->good() || BackupFile->gcount() != sizeof(unitOffset))
+    {
+        delete[] buffer;
+        return ERROR_FILE_CANT_READ;
+    }
 
-//     // 从整合的文件中读取UnitFile的内容并单独存储
-//     BackupFile->seekg(unitOffset);
-//     UnitFile = new FileReader(DirectoryPath + UNIT_FILE_NAME, true);
-//     UnitFile->seekp(0);
-//     while (BackupFile->peek() != EOF)
-//     {
-//         BackupFile->read(buffer, BUFF_LENGTH);
-//         readLength = BackupFile->gcount();
-//         UnitFile->write(buffer, readLength);
-//         if (!UnitFile->good())
-//         {
-//             delete[] buffer;
-//             return ERROR_FILE_CANT_WRITE;
-//         }
-//     }
-//     delete[] buffer;
-//     buffer = nullptr;
-//     delete BackupFile;
-//     BackupFile = nullptr;
+    // 从整合的文件中读取UnitFile的内容并单独存储
+    BackupFile->seekg(unitOffset);
+    UnitFile = new FileReader(DirectoryPath + UNIT_FILE_NAME, true);
+    UnitFile->seekp(0);
+    while (BackupFile->peek() != EOF)
+    {
+        BackupFile->read(buffer, BUFF_LENGTH);
+        readLength = BackupFile->gcount();
+        UnitFile->write(buffer, readLength);
+        if (!UnitFile->good())
+        {
+            delete[] buffer;
+            return ERROR_FILE_CANT_WRITE;
+        }
+    }
+    delete[] buffer;
+    buffer = nullptr;
+    delete BackupFile;
+    BackupFile = nullptr;
 
-//     // 将文件重命名为DATA.BACKUP，并用DataFile指向文件，并将UnitFile的内容删除
-//     rename((DirectoryPath + PACKED_FILE_NAME).c_str(), (DirectoryPath + DATA_FILE_NAME).c_str());
-// #if __cplusplus >= 201703L
-//     std::filesystem::resize_file(DirectoryPath + DATA_FILE_NAME, unitOffset);
-// #else
-//     truncate((DirectoryPath + DATA_FILE_NAME).c_str(), unitOffset);
-// #endif
-//     DataFile = new FileReader(DirectoryPath + DATA_FILE_NAME, false);
-//     UnitFile->seekg(0);
-//     UnitFile->seekp(0);
+    // 将文件重命名为DATA.BACKUP，并用DataFile指向文件，并将UnitFile的内容删除
+    rename((DirectoryPath + PACKED_FILE_NAME).c_str(), (DirectoryPath + DATA_FILE_NAME).c_str());
+#if __cplusplus >= 201703L
+    std::filesystem::resize_file(DirectoryPath + DATA_FILE_NAME, unitOffset);
+#else
+    truncate((DirectoryPath + DATA_FILE_NAME).c_str(), unitOffset);
+#endif
+    DataFile = new FileReader(DirectoryPath + DATA_FILE_NAME, false);
+    UnitFile->seekg(0);
+    UnitFile->seekp(0);
 
-//     // 对文件长度记录和实际长度进行校验
-//     off_t fileLength{};
-//     DataFile->read((char *)&fileLength, sizeof(off_t));
-//     if (fileLength != DataFile->Length())
-//     {
-//         Status = ERROR;
-//         return ERROR_FILE_INFO_NOT_MATCH;
-//     }
-//     UnitFile->read((char *)&fileLength, sizeof(off_t));
-//     if (fileLength != UnitFile->Length())
-//     {
-//         Status = ERROR;
-//         return ERROR_FILE_INFO_NOT_MATCH;
-//     }
-//     Status = DISASSEMBLED;
-//     return NO_ERROR;
-// }
+    // 对文件长度记录和实际长度进行校验
+    off_t fileLength{};
+    DataFile->read((char *)&fileLength, sizeof(off_t));
+    if (fileLength != DataFile->Length())
+    {
+        Status = ERROR;
+        return ERROR_FILE_INFO_NOT_MATCH;
+    }
+    UnitFile->read((char *)&fileLength, sizeof(off_t));
+    if (fileLength != UnitFile->Length())
+    {
+        Status = ERROR;
+        return ERROR_FILE_INFO_NOT_MATCH;
+    }
+    Status = DISASSEMBLED;
+    return NO_ERROR;
+}
 
 std::string FilePacker::Directory_Path()
 {
