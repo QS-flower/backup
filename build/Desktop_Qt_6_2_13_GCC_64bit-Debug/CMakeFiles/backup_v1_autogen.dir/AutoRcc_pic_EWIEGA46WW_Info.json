@@ -1,0 +1,26 @@
+{
+	"BUILD_DIR" : "/home/qs/backup_v1/build/Desktop_Qt_6_2_13_GCC_64bit-Debug/backup_v1_autogen",
+	"CMAKE_BINARY_DIR" : "/home/qs/backup_v1/build/Desktop_Qt_6_2_13_GCC_64bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/qs/backup_v1/build/Desktop_Qt_6_2_13_GCC_64bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/qs/backup_v1",
+	"CMAKE_SOURCE_DIR" : "/home/qs/backup_v1",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "Ninja",
+	"INCLUDE_DIR" : "/home/qs/backup_v1/build/Desktop_Qt_6_2_13_GCC_64bit-Debug/backup_v1_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/qs/backup_v1/images/wel.png",
+		"/home/qs/backup_v1/images/main.png"
+	],
+	"LOCK_FILE" : "/home/qs/backup_v1/build/Desktop_Qt_6_2_13_GCC_64bit-Debug/CMakeFiles/backup_v1_autogen.dir/AutoRcc_pic_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "--no-zstd", "-name", "pic" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_pic.cpp",
+	"RCC_EXECUTABLE" : "/home/qs/Qt/6.2.13/gcc_64/./libexec/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/qs/backup_v1/build/Desktop_Qt_6_2_13_GCC_64bit-Debug/CMakeFiles/backup_v1_autogen.dir/AutoRcc_pic_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/qs/backup_v1/pic.qrc",
+	"USE_BETTER_GRAPH" : false,
+	"VERBOSITY" : 0
+}

@@ -33,6 +33,7 @@ public:
     QPushButton *register_btn;
     QLabel *user_lab;
     QLabel *user_lab_2;
+    QLabel *pic;
 
     void setupUi(QDialog *login)
     {
@@ -147,6 +148,10 @@ public:
         user_lab_2->setFont(font2);
         user_lab_2->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
         user_lab_2->setAlignment(Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter);
+        pic = new QLabel(login);
+        pic->setObjectName(QString::fromUtf8("pic"));
+        pic->setGeometry(QRect(0, 0, 331, 361));
+        pic->setStyleSheet(QString::fromUtf8("border-image: url(:/images/wel.png);"));
 
         retranslateUi(login);
 
@@ -163,6 +168,7 @@ public:
         register_btn->setText(QCoreApplication::translate("login", "\346\263\250\345\206\214", nullptr));
         user_lab->setText(QCoreApplication::translate("login", "\347\224\250\346\210\267\345\220\215", nullptr));
         user_lab_2->setText(QCoreApplication::translate("login", "\345\257\206\347\240\201", nullptr));
+        pic->setText(QString());
     } // retranslateUi
 
 };

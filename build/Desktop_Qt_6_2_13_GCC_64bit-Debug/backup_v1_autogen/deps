@@ -293,6 +293,7 @@ backup_v1_autogen/timestamp: \
 	/home/qs/backup_v1/main.cpp \
 	/home/qs/backup_v1/mainwindow.cpp \
 	/home/qs/backup_v1/mainwindow.h \
+	/home/qs/backup_v1/pic.qrc \
 	/home/qs/backup_v1/register1.cpp \
 	/home/qs/backup_v1/register1.h \
 	/home/qs/backup_v1/state.h \

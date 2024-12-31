@@ -29,6 +29,7 @@ public:
     QVBoxLayout *verticalLayout;
     QPushButton *backup_btn;
     QPushButton *restore_btn;
+    QLabel *pic;
 
     void setupUi(QDialog *MainWindow)
     {
@@ -127,6 +128,10 @@ public:
 
         verticalLayout->addWidget(restore_btn);
 
+        pic = new QLabel(MainWindow);
+        pic->setObjectName(QString::fromUtf8("pic"));
+        pic->setGeometry(QRect(0, 0, 301, 361));
+        pic->setStyleSheet(QString::fromUtf8("border-image: url(:/images/main.png);"));
 
         retranslateUi(MainWindow);
 
@@ -141,6 +146,7 @@ public:
         wel1->setText(QCoreApplication::translate("MainWindow", "\350\257\267\351\200\211\346\213\251\346\202\250\347\232\204\346\223\215\344\275\234\357\274\232", nullptr));
         backup_btn->setText(QCoreApplication::translate("MainWindow", "\346\226\207\344\273\266\345\244\207\344\273\275", nullptr));
         restore_btn->setText(QCoreApplication::translate("MainWindow", "\345\244\207\344\273\275\346\226\207\344\273\266\350\277\230\345\216\237", nullptr));
+        pic->setText(QString());
     } // retranslateUi
 
 };

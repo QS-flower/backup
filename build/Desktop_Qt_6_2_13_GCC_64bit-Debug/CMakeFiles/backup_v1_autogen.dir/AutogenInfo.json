@@ -317,7 +317,8 @@
 		"/home/qs/Qt/6.2.13/gcc_64/lib/cmake/Qt6Sql/Qt6SqlTargets-relwithdebinfo.cmake",
 		"/home/qs/Qt/6.2.13/gcc_64/lib/cmake/Qt6Sql/Qt6SqlAdditionalTargetInfo.cmake",
 		"/home/qs/Qt/6.2.13/gcc_64/lib/cmake/Qt6Sql/Qt6SqlVersionlessTargets.cmake",
-		"/home/qs/Qt/Tools/CMake/share/cmake-3.29/Modules/GNUInstallDirs.cmake"
+		"/home/qs/Qt/Tools/CMake/share/cmake-3.29/Modules/GNUInstallDirs.cmake",
+		"/home/qs/backup_v1/pic.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "/home/qs/backup_v1",
 	"CROSS_CONFIG" : false,

@@ -35,6 +35,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         inoderecorder.h inoderecorder.cpp
         filecompressor.h filecompressor.cpp
         up_down.h up_down.cpp
+        pic.qrc
 
     )
 # Define target properties for Android with Qt 6 as:

@@ -128,12 +128,14 @@ void MainWindow::on_backup_btn_clicked()//备份
         delete fileCompressor;
         Packer.DeleteFile();
         printf("ALL PACKUP PROCESS FINISHED SUCCESSFULLY!\n");
+        QMessageBox::information(NULL, "", "文件打包完成！");
         system((string("rm -R ") + tempDirectory.toStdString()).c_str());
     }
     else
     {
         delete fileCompressor;
         printf("Backup failed! Because unknown error occurred on uploading.\n");
+        QMessageBox::information(NULL, "", "文件解包失败，请重试！");
         qDebug() << errorMessage;
         qDebug() <<"Backup File store in %s",tempDirectory;
     }
@@ -184,7 +186,7 @@ void MainWindow::on_restore_btn_clicked()
         QMessageBox::information(NULL, "", "正在解包中...");
         FilePacker Packer = FilePacker(tempDirectory.toStdString(), false);
         //我也不知道这个是干嘛的
-        //Packer.Disassemble();
+        Packer.Disassemble();
         delete InodeRecorder::inodeRecorderRestore;
         InodeRecorder::inodeRecorderRestore = new InodeRecorderRestore();
         off_t ProcessBarTotal = Packer.UnitFile->Length();
