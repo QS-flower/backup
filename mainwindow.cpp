@@ -128,14 +128,14 @@ void MainWindow::on_backup_btn_clicked()//备份
         delete fileCompressor;
         Packer.DeleteFile();
         printf("ALL PACKUP PROCESS FINISHED SUCCESSFULLY!\n");
-        QMessageBox::information(NULL, "", "文件打包完成！");
+        QMessageBox::information(NULL, "", "File Uploading over！");
         system((string("rm -R ") + tempDirectory.toStdString()).c_str());
     }
     else
     {
         delete fileCompressor;
         printf("Backup failed! Because unknown error occurred on uploading.\n");
-        QMessageBox::information(NULL, "", "文件解包失败，请重试！");
+        QMessageBox::information(NULL, "", "Backup Error！");
         qDebug() << errorMessage;
         qDebug() <<"Backup File store in %s",tempDirectory;
     }
@@ -165,11 +165,11 @@ void MainWindow::on_restore_btn_clicked()
         qDebug() << "packDirectory: " << packDirectory;
     }
 
-    QMessageBox::information(NULL, "", "正在下载中...");
+    QMessageBox::information(NULL, "", "Downloading...");
     if(download(packDirectory.toStdString().c_str(),tempDirectory.toStdString().c_str())==1){ //下载备份的文件
-        QMessageBox::information(NULL, "", "文件下载成功！");
+        QMessageBox::information(NULL, "", "Download over！");
         //解压缩
-        QMessageBox::information(NULL, "", "正在解压中...");
+        QMessageBox::information(NULL, "", "Uncompressing...");
         FileCompressor *fileCompressor = new FileCompressor(tempDirectory.toStdString());
         if(fileCompressor->Decompress() != NO_ERROR)
         {
@@ -180,10 +180,10 @@ void MainWindow::on_restore_btn_clicked()
         }
         fileCompressor->DeleteFile();
         delete fileCompressor;
-        QMessageBox::information(NULL, "", "文件解压成功！");
+        QMessageBox::information(NULL, "", "Uncompress over！");
         //从解包这里更改！！！
         // 解包
-        QMessageBox::information(NULL, "", "正在解包中...");
+        QMessageBox::information(NULL, "", "Unpacking...");
         FilePacker Packer = FilePacker(tempDirectory.toStdString(), false);
         //我也不知道这个是干嘛的
         Packer.Disassemble();
@@ -198,7 +198,7 @@ void MainWindow::on_restore_btn_clicked()
             {
                 delete fileInfo;
                 fileInfo = nullptr;
-                QMessageBox::information(NULL, "", "文件恢复失败！");
+                QMessageBox::information(NULL, "", "Restore error！");
                 printf("恢复失败！\n");
                 return;
                 // error
@@ -210,17 +210,17 @@ void MainWindow::on_restore_btn_clicked()
             delete fileInfo;
             fileInfo = nullptr;
         }
-        QMessageBox::information(NULL, "", "文件解包完成！");
+        QMessageBox::information(NULL, "", "Unpack over！");
         Packer.DeleteFile();
         cout << "Restoring: (" << ProcessBarTotal << " / " << ProcessBarTotal << ")" << endl;
-        QMessageBox::information(NULL, "", "文件恢复成功！");
+        QMessageBox::information(NULL, "", "Restore over！");
         cout << "All restore process finished successfully!" << endl;
         system((string("rm -R ") + tempDirectory.toStdString()).c_str());
     }
     else
     {
         printf("download fail!\n");
-        QMessageBox::warning(NULL, "", "文件下载失败！请重试。");
+        QMessageBox::warning(NULL, "", "Downloading error。");
         system((string("rm -R ") + tempDirectory.toStdString()).c_str());
     }
 }

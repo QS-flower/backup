@@ -13,7 +13,7 @@ login::login(DatabaseManager *dbManager, QWidget *parent)
 
     // 打开数据库
     if (!dbManager->openDatabase()) {
-        QMessageBox::critical(this, "Error", "Failed to connect to database");
+        QMessageBox::critical(this, "Error", "Failed to connect to database.");
     }
 }
 
@@ -28,14 +28,17 @@ void login::on_login_btn_clicked()
     QString password = ui->password->text();
 
     // 检查用户名和密码是否为空
-    if (username.isEmpty() || password.isEmpty()) {
-        QMessageBox::warning(this, "Login", "Username and Password cannot be empty");
+    if (username.isEmpty()){
+        QMessageBox::warning(this, "Login", "Username cannot be empty.");
+        return;
+    }else if (password.isEmpty()){
+        QMessageBox::warning(this, "Login", "Password cannot be empty.");
         return;
     }
 
     QString errorMessage;
     if (dbManager->authenticateUser(username, password, errorMessage)) {
-        QMessageBox::information(this, "Login", "Login successful");
+        QMessageBox::information(this, "Login", "Login successful.");
         // 这里可以进一步进入应用程序的主界面
         // 创建主窗口并显示
         MainWindow *mainWindow = new MainWindow(username);
@@ -54,6 +57,6 @@ void login::on_register_btn_clicked()
     register1 register1(dbManager, this);  // 创建注册窗口对象
     if (register1.exec() == QDialog::Accepted) {
         // 如果注册窗口返回 Accepted，则说明注册成功
-        QMessageBox::information(this, "Register", "Please login now");
+        QMessageBox::information(this, "Register", "Please login now.");
     }
 }

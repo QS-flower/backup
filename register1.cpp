@@ -23,8 +23,11 @@ void register1::on_register_btn_clicked()
     QString password = ui->psd->text();
 
     // 检查用户名和密码是否为空
-    if (username.isEmpty() || password.isEmpty()) {
-        QMessageBox::warning(this, "Register", "Username and Password cannot be empty");
+    if (username.isEmpty()) {
+        QMessageBox::warning(this, "Register", "Username cannot be empty.");
+        return;
+    }else if (password.isEmpty()){
+        QMessageBox::warning(this, "Register", "Password cannot be empty.");
         return;
     }
 

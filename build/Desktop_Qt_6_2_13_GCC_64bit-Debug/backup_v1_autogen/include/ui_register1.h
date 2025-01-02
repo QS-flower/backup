@@ -36,6 +36,7 @@ public:
     QLabel *user_lab;
     QLabel *psd_lab;
     QLabel *psd_a_lab;
+    QLabel *pic;
 
     void setupUi(QDialog *register1)
     {
@@ -168,6 +169,10 @@ public:
         psd_a_lab->setFont(font1);
         psd_a_lab->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
         psd_a_lab->setAlignment(Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter);
+        pic = new QLabel(register1);
+        pic->setObjectName(QString::fromUtf8("pic"));
+        pic->setGeometry(QRect(0, 0, 361, 381));
+        pic->setStyleSheet(QString::fromUtf8("border-image: url(:/images/wel.png);"));
 
         retranslateUi(register1);
 
@@ -187,6 +192,7 @@ public:
         user_lab->setText(QCoreApplication::translate("register1", "\347\224\250\346\210\267\345\220\215", nullptr));
         psd_lab->setText(QCoreApplication::translate("register1", "\345\257\206\347\240\201", nullptr));
         psd_a_lab->setText(QCoreApplication::translate("register1", "\347\241\256\350\256\244\345\257\206\347\240\201", nullptr));
+        pic->setText(QString());
     } // retranslateUi
 
 };
